@@ -1,6 +1,7 @@
 import React from 'react';
 import request from 'superagent';
-import style from './PlanetsDisplay.css'
+import style from './PlanetsDisplay.css';
+import PlanetItem from './PlanetItem.js';
 
 export default class PlanetsDisplay extends React.Component {
 
@@ -67,12 +68,43 @@ export default class PlanetsDisplay extends React.Component {
     // }
 
 
+
     render() {
+
+        let spaceFacts;
+        if (this.state.planetData) {
+            spaceFacts = this.state.planetData.map(planet =>
+                <div key={this.state.planetData.id}>
+                    <p>Name: {this.state.planet.planet}</p>
+                    <p>Gravity compared to Earth: {this.state.planet.gravity}</p>
+                    <p>Diameter: {this.state.planet.diameter}km</p>
+                    <p>Is the magnetic field strong?{this.state.planet.magnetic_field_strong}</p>
+                </div>)
+        } else {
+            spaceFacts = "Transmission delayed...";
+        }
+
+
+        // const spaceFacts = this.state.planetData.map(planet =>
+        //     <div key={this.state.planetData.id}>
+        //         <p>Name: {this.state.planet.planet}</p>
+        //         <p>Gravity compared to Earth: {this.state.planet.gravity}</p>
+        //         <p>Diameter: {this.state.planet.diameter}km</p>
+        //         <p>Is the magnetic field strong?{this.state.planet.magnetic_field_strong}</p>
+        //     </div>)
+
+
+        //const planetItem = this.state.planetData
 
         return (
             <div className="presentation-square">
+                {/* {this.spaceFacts} */}
                 {/* {data.body.results} */}
-                {this.state.planetData}
+                {/* {this.state.planetData} */}
+                {/* <PlanetItem planets={this.state.planetData} /> */}
+
+                {spaceFacts}
+
             </div>
 
 

@@ -1,4 +1,9 @@
+body {
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+}
+
 .data-place {
-    background-color: black;
     color: white;
 }

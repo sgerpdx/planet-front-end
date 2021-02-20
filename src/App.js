@@ -5,12 +5,13 @@ import './App.css';
 import PlanetsDisplay from './PlanetsDisplay.js';
 import HomePage from './HomePage.js';
 
+//note
+
 export default class App extends React.Component {
   render() {
     return (
       <div>
         <Router>
-          <Header />
           <Switch>
             <Route
               path="/"
