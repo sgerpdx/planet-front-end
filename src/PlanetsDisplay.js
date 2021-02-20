@@ -1,16 +1,11 @@
 import React from 'react';
 import request from 'superagent';
+import style from './PlanetsDisplay.css'
 
 export default class PlanetsDisplay extends React.Component {
 
     state = {
-        query: '',
-        order: '',
-        category: '',
-        pokeData: [],
-        loading: false,
-        totalPokemon: 0,
-        currentPage: 1,
+        planetData: [],
     }
 
     componentDidMount = async () => {
@@ -75,21 +70,10 @@ export default class PlanetsDisplay extends React.Component {
     render() {
 
         return (
-            <section>
-                <div className="presentation-square">
-                    <img className="box-image" />
-                    <div><span>If you would like to learn about planets, then click here.</span></div>
-
-
-                    <div className="display-area">
-                        {this.state.loading
-                            ? <Spinner />
-                            : <PokeList pokes={this.state.pokeData} />
-                        }
-                    </div>
-
-                </div>
-            </section >
+            <div className="presentation-square">
+                {/* {data.body.results} */}
+                {this.state.planetData}
+            </div>
 
 
         )
