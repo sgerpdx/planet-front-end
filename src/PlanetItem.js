@@ -11,8 +11,6 @@ export default class PlanetItem extends React.Component {
                 <p>a {this.props.planet.planet} planet</p>
                 <p>{this.props.planet.planet}km in diameter</p>
                 <p>with {this.props.planet.planet}x earth gravity</p>
-                {/* <p>{this.props.planet.planet}</p>
-                <p>{this.props.planet.planet}</p> */}
             </div>)
 
         return (

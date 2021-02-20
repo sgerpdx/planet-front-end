@@ -18,7 +18,7 @@ export default class PlanetsDisplay extends React.Component {
 
         const data = await request.get(`https://lit-shore-34578.herokuapp.com/planets`);
 
-        this.setState({
+        await this.setState({
             planetData: data.body.results,
         })
 
