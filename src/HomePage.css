@@ -7,3 +7,9 @@ body {
 .data-place {
     color: white;
 }
+
+.introduction {
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+}

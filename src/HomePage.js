@@ -8,7 +8,7 @@ export default class HomePage extends React.Component {
             <div className="data-place">
                 <img className="box-image" />
                 <NavLink exact activeClassName="selected" to="/planets">
-                    <p className="introduction">If you would like to learn about planets, then click here.</p>
+                    <p className="introduction">If you would like to learn about planets, please click here.</p>
                 </NavLink>
             </div>
         )
