@@ -2,11 +2,13 @@ import React from 'react';
 import request from 'superagent';
 import style from './PlanetsDisplay.css';
 import PlanetItem from './PlanetItem.js';
+import JupiterImg from './jupiter.jpg';
 
 export default class PlanetsDisplay extends React.Component {
 
     state = {
         planetData: [],
+        loading: false,
     }
 
     componentDidMount = async () => {
@@ -14,7 +16,7 @@ export default class PlanetsDisplay extends React.Component {
     }
 
     retrievePlanets = async () => {
-        //this.setState({ loading: true });
+        this.setState({ loading: true });
 
         const data = await request.get(`https://lit-shore-34578.herokuapp.com/planets`);
 
@@ -22,51 +24,9 @@ export default class PlanetsDisplay extends React.Component {
             planetData: data.body.results,
         })
 
-        //this.setState({ loading: false });
+        this.setState({ loading: false });
 
     }
-
-    // handleOrderChange = (e) => {
-    //     this.setState({
-    //         order: e.target.value
-    //     });
-    // }
-
-    // handleCategoryChange = (e) => {
-    //     this.setState({
-    //         category: e.target.value
-    //     });
-    // }
-
-    // handleClick = async () => {
-    //     this.setState({ currentPage: 1 });
-
-    //     this.retrievePokemon();
-    // }
-
-    // handleInputChange = (e) => {
-    //     this.setState({
-    //         query: e.target.value
-    //     })
-    // }
-
-
-    // handlePrevClick = async () => {
-    //     await this.setState({
-    //         currentPage: this.state.currentPage - 1
-    //     })
-
-    //     await this.retrievePokemon();
-    // }
-
-    // handleNextClick = async () => {
-    //     await this.setState({
-    //         currentPage: this.state.currentPage + 1
-    //     })
-
-    //     await this.retrievePokemon();
-    // }
-
 
 
     render() {
@@ -84,28 +44,28 @@ export default class PlanetsDisplay extends React.Component {
             spaceFacts = "Transmission delayed...";
         }
 
-
-        // const spaceFacts = this.state.planetData.map(planet =>
-        //     <div key={this.state.planetData.id}>
-        //         <p>Name: {this.state.planet.planet}</p>
-        //         <p>Gravity compared to Earth: {this.state.planet.gravity}</p>
-        //         <p>Diameter: {this.state.planet.diameter}km</p>
-        //         <p>Is the magnetic field strong?{this.state.planet.magnetic_field_strong}</p>
-        //     </div>)
-
-
-        //const planetItem = this.state.planetData
-
         return (
-            <div className="presentation-square">
-                {/* {this.spaceFacts} */}
-                {/* {data.body.results} */}
-                {/* {this.state.planetData} */}
-                {/* <PlanetItem planets={this.state.planetData} /> */}
+            <>
+                {/* <div className="presentation-square">
+                    {this.spaceFacts}
+                    {data.body.results}
+                    {this.state.planetData}
+                    <PlanetItem planets={this.state.planetData} />
 
-                {spaceFacts}
+                    {spaceFacts}
 
-            </div>
+                </div> */}
+
+                <div className="presentation-square">
+                    {this.state.loading
+                        ? <JupiterImg />
+                        : <div>{spaceFacts}</div>
+                    }
+                </div>
+            </>
+
+
+
 
 
         )
